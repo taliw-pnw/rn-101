@@ -1,8 +1,8 @@
-const BASE_URL = "https://makeup-api.herokuapp.com/api/v1";
+const BASE_URL = "https://playground-api.taliwhub.dev/api/makeup";
 
 export async function fetchProducts(): Promise<any[]> {
   try {
-    const response = await fetch(`${BASE_URL}/products.json`);
+    const response = await fetch(`${BASE_URL}/products`);
     if (!response.ok) {
       throw new Error("Failed to fetch products");
     }
@@ -16,7 +16,7 @@ export async function fetchProducts(): Promise<any[]> {
 
 export async function fetchProductById(id: string): Promise<any | null> {
   try {
-    const response = await fetch(`${BASE_URL}/products/${id}.json`);
+    const response = await fetch(`${BASE_URL}/products/${id}`);
     if (!response.ok) {
       throw new Error("Failed to fetch product");
     }
@@ -31,7 +31,7 @@ export async function fetchProductById(id: string): Promise<any | null> {
 export async function searchProducts(query: string): Promise<any[]> {
   try {
     const response = await fetch(
-      `${BASE_URL}/products.json?brand=${encodeURIComponent(query)}`
+      `${BASE_URL}/products?brand=${encodeURIComponent(query)}`
     );
     if (!response.ok) {
       throw new Error("Failed to search products");
@@ -49,7 +49,7 @@ export async function fetchProductsByCategory(
 ): Promise<any[]> {
   try {
     const response = await fetch(
-      `${BASE_URL}/products.json?product_type=${encodeURIComponent(category)}`
+      `${BASE_URL}/products?product_type=${encodeURIComponent(category)}`
     );
     if (!response.ok) {
       throw new Error("Failed to fetch products by category");
