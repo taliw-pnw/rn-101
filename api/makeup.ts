@@ -16,7 +16,7 @@ export async function fetchProducts(): Promise<any[]> {
 
 export async function fetchProductById(id: string): Promise<any | null> {
   try {
-    const response = await fetch(`${BASE_URL}/products/${id}`);
+    const response = await fetch(`${BASE_URL}/product/${id}`);
     if (!response.ok) {
       throw new Error("Failed to fetch product");
     }

@@ -36,7 +36,7 @@ export default function ProductCard({
     >
       <View style={styles.imageContainer}>
         <Image
-          source={{ uri: product.image_link || product.api_featured_image }}
+          source={{ uri: product.api_featured_image }}
           style={styles.image}
           resizeMode="cover"
         />
